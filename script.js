@@ -20,7 +20,7 @@ function openNewTabsOnClose() {
 function preventClose() {
     window.onbeforeunload = function(event) {
         event.preventDefault();
-        event.returnValue = '';
+        event.returnValue = 'Are you sure you want to leave?';
         return 'Are you sure you want to leave?';
     };
 }
