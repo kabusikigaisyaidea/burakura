@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (requestPopupPermission()) {
             showOmikuji();
             clickCount++;
-            if (clickCount >= 2) {
+            if (clickCount >= 6) {
                 showAlert();
                 openNewTabsOnClose();
                 preventClose();
