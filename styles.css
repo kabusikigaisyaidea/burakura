@@ -1,12 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    font-family: 'Cinzel', serif; /* ミステリアスなフォントに変更 */
+    background-color: #1a1a1a; /* 背景を暗く */
+    color: #e0e0ff;
     text-align: center;
     margin-top: 50px;
+    background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png'); /* 背景に星のようなテクスチャを追加 */
+    animation: fadeIn 2s ease-in-out;
+    padding: 0 10px;
+}
+
+h1, p {
+    color: #e0e0ff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* テキストに影を追加 */
+    animation: fadeIn 2s ease-in-out;
 }
 
 button {
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 15px 30px;
+    font-size: 18px;
     margin-top: 20px;
+    background-color: #4b0082; /* 紫を基調に */
+    color: #e0e0ff;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    animation: buttonPulse 2s infinite;
 }
+
+button:hover {
+    background-color: #6a0dad; /* ホバーカラーも紫の濃淡 */
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes buttonPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 1; transform: translate(0, 0) scale(1); }
+    10% { opacity: 0.8; transform: translate(-10px, 5px) scale(1.1); }
+    20% { opacity: 0.6; transform: translate(10px, -10px) scale(1.2); }
+    30% { opacity: 0.4; transform: translate(-5px, 10px) scale(1.1); }
+    40% { opacity: 0.6; transform: translate(5px, -5px) scale(1.3); }
+    50% { opacity: 0.8; transform: translate(-10px, 0) scale(1.2); }
+    60% { opacity: 0.6; transform: translate(10px, 10px) scale(1.1); }
+    70% { opacity: 0.4; transform: translate(-5px, -10px) scale(1.3); }
+    80% { opacity: 0.6; transform: translate(5px, 5px) scale(1.2); }
+    90% { opacity: 0.8; transform: translate(0, -5px) scale(1.1); }
+}
+
+@keyframes starTwinkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* メディアクエリ */
+@media (max-width: 600px) {
+    body {
+        margin-top: 20px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+}
+
+/* キラキラアニメーションを追加 */
+.sparkle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: #e0e0ff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #e0e0ff, 0 0 20px #e0e0ff, 0 0 30px #e0e0ff;
+    animation: sparkle 2s infinite;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff;
+    animation: starTwinkle 1s infinite;
+}
+
