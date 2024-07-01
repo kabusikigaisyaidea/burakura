@@ -54,15 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const resultDiv = document.getElementById('result');
     let clickCount = 0;
 
-    function requestPopupPermission() {
-        let popupWindow = window.open('', '', 'width=1,height=1');
-        if (!popupWindow || popupWindow.closed || typeof popupWindow.closed === 'undefined') {
-            alert('ポップアップを許可してください！');
-            return false;
-        } else {
-            popupWindow.close();
-            return true;
-        }
+
     }
 
     function showOmikuji() {
