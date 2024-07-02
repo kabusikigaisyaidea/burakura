@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function showOmikuji() {
-        const fortunes = ['大吉', '中吉', '小吉', '吉', '末吉', '凶', '大凶'];
+        const fortunes = ['大吉', '吉', '中吉', '小吉', '末吉', '末小吉', '平', '凶', '小凶', '半凶', '末凶', '大凶', '大吉', '吉', '中吉', '小吉', '末吉', '末小吉', '平', '凶', '小凶', '半凶', '末凶', '大凶', '大吉', '吉', '中吉', '小吉', '末吉', '末小吉', '平', '凶', '小凶', '半凶', '末凶', '大凶', 'マルク＆マホロア',];
         const randomResult = fortunes[Math.floor(Math.random() * fortunes.length)];
         resultDiv.textContent = `あなたの運勢は: ${randomResult}`;
     }
